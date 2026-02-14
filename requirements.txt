@@ -1,0 +1,10 @@
+Flask
+python-dotenv
+requests
+flask_sqlalchemy
+psycopg2-binary
+flask-login
+flask-bcrypt
+cloudinary
+edge-tts
+gunicorn
