@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVision Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2 class="logo">✨ EduVision</h2>
+
+    <div class="menu">
+      <button class="menu-btn active">💬 AI Chat</button>
+      <button class="menu-btn">🎓 Grades</button>
+    </div>
+
+    <h4 class="recent-title">RECENT CHATS</h4>
+    <ul class="recent-list">
+      <li>Math homework help</li>
+      <li>The solar system facts</li>
+      <li>How do planes fly?</li>
+    </ul>
+
+    <div class="profile">
+      <div class="profile-circle">V</div>
+      <div>
+        <p class="profile-name">Vaishnavi</p>
+        <p class="profile-id">@eduvision</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <div class="topbar">
+      <button class="upgrade-btn">🏆 Upgrade to Pro</button>
+    </div>
+
+    <div class="content">
+
+      <div class="icon-box">🌞</div>
+
+      <h1 class="title">What would you like to learn today?</h1>
+      <p class="subtitle">
+        I'm your AI learning companion. Ask me anything and get explanation + image + voice.
+      </p>
+
+      <!-- FORM CONNECTED TO BACKEND -->
+      <form class="ask-box" action="/explain" method="POST">
+        <input type="text" name="topic" placeholder="Ask anything..." required>
+
+        <button type="submit">Ask</button>
+
+        <!-- Hidden input for voice -->
+        <input type="hidden" name="voice" id="voiceInput" value="male">
+
+        <!-- Hidden input for level -->
+        <input type="hidden" name="level" id="levelInput" value="diploma">
+      </form>
+
+      <!-- Voice Buttons -->
+      <div class="voice-options">
+        <button type="button" class="voice-btn active" onclick="selectVoice('male')">Indian Male</button>
+        <button type="button" class="voice-btn" onclick="selectVoice('female')">Indian Female</button>
+        <button type="button" class="voice-btn" onclick="selectVoice('kids')">Cartoon Kids Style</button>
+      </div>
+
+      <!-- Level Buttons -->
+      <div class="level-options">
+        <button type="button" class="level-btn" onclick="selectLevel('std1')">Std 1</button>
+        <button type="button" class="level-btn" onclick="selectLevel('std5')">Std 5</button>
+        <button type="button" class="level-btn" onclick="selectLevel('std10')">Std 10</button>
+        <button type="button" class="level-btn active" onclick="selectLevel('diploma')">Diploma</button>
+      </div>
+
+      <!-- Features -->
+      <div class="feature-box">
+        <div class="feature-card">
+          <h3>📘 Text Explanation</h3>
+          <p>AI explains topic in simple language</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>🖼 Image Generation</h3>
+          <p>AI generates image based on topic</p>
+        </div>
+
+        <div class="feature-card">
+          <h3>🔊 Voice Explanation</h3>
+          <p>Listen explanation in audio form</p>
+        </div>
+      </div>
+
+      <footer>© 2026 EduVision. Learning is an adventure! 🚀</footer>
+
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
